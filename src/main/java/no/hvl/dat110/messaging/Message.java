@@ -9,17 +9,19 @@ public class Message {
 
 	// construction a Message with the data provided
 	public Message(byte[] data) {
-		
+
 		// TODO - START
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.constructor("Message"));
-			
+
+		if (data == null || data.length > 128) {
+			// do nothing
+		}else {
+			this.data = data;
+		}
 		// TODO - END
 	}
 
 	public byte[] getData() {
-		return this.data; 
+		return this.data;
 	}
 
 }
