@@ -29,9 +29,9 @@ public class MessagingClient {
 		// TODO - START
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+
+
+		connection.receive();
 		
 		// TODO - END
 		return connection;
