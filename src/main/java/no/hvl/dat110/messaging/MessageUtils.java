@@ -36,7 +36,7 @@ public class MessageUtils {
 
 		//fills in data
 		for (int i=0; i<data.length; i++){
-            segment[i+1] = data[i];
+            segment[i] = data[i];
 		}
 			
 		// TODO - END
@@ -59,8 +59,8 @@ public class MessageUtils {
 		}
 
 		byte[] data = new byte[size];
-		for (int i=0; i<size; i++){
-			data[i] = segment[i+1];
+		for (int i=0; i< data.length; i++){
+			data[i] = segment[i];
 		}
 
 		message = new Message(data);
