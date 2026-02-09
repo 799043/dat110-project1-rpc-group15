@@ -9,7 +9,7 @@ public class Message {
 
 	// construction a Message with the data provided
 	public Message(byte[] data) {
-		if (data != null && data.length == MessageUtils.SEGMENTSIZE) {this.data = data;}
+		//if (data != null && data.length == MessageUtils.SEGMENTSIZE) {this.data = data;}
 		this.data = data;
 	}
 

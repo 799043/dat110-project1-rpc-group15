@@ -22,17 +22,32 @@ public class MessagingClient {
 	public MessageConnection connect () {
 
 		// client-side socket for underlying TCP connection to messaging server
-		Socket clientSocket;
+		Socket clientSocket = null;
 
 		MessageConnection connection = null;
 		
 		// TODO - START
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
+        try {
+            clientSocket = new Socket(MessageUtils.MESSAGINGHOST, MessageUtils.MESSAGINGPORT);
 
+//			clientSocket.connect();
 
-		connection.receive();
-		
+			connection = new MessageConnection(clientSocket);
+
+//			Message message = new Message(data);
+
+//			connection.send(data);
+
+			Message received = connection.receive();
+
+			byte[] clientreceived = received.getData();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
 		// TODO - END
 		return connection;
 	}
