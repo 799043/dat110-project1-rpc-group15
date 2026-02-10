@@ -60,6 +60,12 @@ public class RPCClient {
 		 */
 
 		this.connection.send(new Message(RPCUtils.encapsulate(rpcid, param)));
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		byte[] rpcmsg = this.connection.receive().getData();
 		returnval = RPCUtils.decapsulate(rpcmsg);
 		
