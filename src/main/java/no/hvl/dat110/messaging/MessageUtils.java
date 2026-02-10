@@ -30,13 +30,15 @@ public class MessageUtils {
 		}
 
 		//padding
-		for (int i=0; i<SEGMENTSIZE; i++){
-			segment[i] = 0;
-		}
+//		for (int i=0; i<SEGMENTSIZE; i++){
+//			segment[i] = 0;
+//		}
+
+		segment[0] = (byte)data.length;
 
 		//fills in data
 		for (int i=0; i<data.length; i++){
-            segment[i] = data[i];
+            segment[i+1] = data[i];
 		}
 			
 		// TODO - END
@@ -56,11 +58,19 @@ public class MessageUtils {
 			if (segment[i] != 0){
 				size += 1;
 			}
+
+			//failsafe for when size = 0
+			if (segment[i] == 0 && size == 0){
+				size = 1;
+			}
 		}
 
+		size -= 1;
+
 		byte[] data = new byte[size];
-		for (int i=0; i< data.length; i++){
-			data[i] = segment[i];
+
+		for (int i=0; i<data.length; i++){
+			data[i] = segment[i+1];
 		}
 
 		message = new Message(data);
