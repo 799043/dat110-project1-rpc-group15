@@ -61,7 +61,7 @@ public class MessageConnection {
 		// read a segment from the input stream and decapsulate data into a Message
 		
 		try {
-			data = inStream.readAllBytes();
+			data = inStream.readNBytes(128);
 			message = MessageUtils.decapsulate(data);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
