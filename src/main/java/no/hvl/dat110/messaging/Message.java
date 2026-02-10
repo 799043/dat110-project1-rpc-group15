@@ -12,9 +12,9 @@ public class Message {
 
 		// TODO - START
 
-		if (data == null || data.length > 128) {
+		if (data == null || data.length > MessageUtils.SEGMENTSIZE - 1) {
 			// do nothing
-		}else {
+		} else {
 			this.data = data;
 		}
 		// TODO - END
