@@ -79,7 +79,7 @@ public class RPCUtils {
 		byte[] encoded = null;
 		
 		// TODO - START 
-					
+		encoded = new byte[1];			
 		// TODO - END
 		
 		return encoded;
