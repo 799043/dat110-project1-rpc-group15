@@ -30,19 +30,8 @@ public class MessagingClient {
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
         try {
-            clientSocket = new Socket(MessageUtils.MESSAGINGHOST, MessageUtils.MESSAGINGPORT);
-
-//			clientSocket.connect();
-
+            clientSocket = new Socket(MessageUtils.MESSAGINGHOST,MessageUtils.MESSAGINGPORT);
 			connection = new MessageConnection(clientSocket);
-
-//			Message message = new Message(data);
-
-//			connection.send(data);
-
-			Message received = connection.receive();
-
-			byte[] clientreceived = received.getData();
 
         } catch (Exception e) {
             throw new RuntimeException(e);

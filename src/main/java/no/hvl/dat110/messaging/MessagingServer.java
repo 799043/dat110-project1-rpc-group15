@@ -32,21 +32,12 @@ public class MessagingServer {
 		// TODO - START
 		// accept TCP connection on welcome socket and create messaging connection to be returned
         try {
-//            connection = new MessageConnection(welcomeSocket);
+			Socket socket = welcomeSocket.accept();
 
-			welcomeSocket.accept();
+			connection = new MessageConnection(socket);
 
-			Message request = connection.receive();
 
-			byte[] serverrecieved = request.getData();
-
-			Message reply = new Message(serverrecieved);
-
-			connection.send(reply);
-
-			connection.close();
-
-        } catch (IOException e) {
+		} catch (IOException e) {
             throw new RuntimeException(e);
         }
 
