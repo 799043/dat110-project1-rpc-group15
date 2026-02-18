@@ -11,10 +11,17 @@ public class Message {
 	public Message(byte[] data) {
 		
 		// TODO - START
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.constructor("Message"));
-			
+
+		if (data == null) {
+			//throw new UnsupportedOperationException("Message can't be null");
+		} 
+		else if (data.length > 127) {
+			throw new UnsupportedOperationException("Message can't be longer than 127 bytes");
+		}
+		else {
+			this.data = data;
+		}
+
 		// TODO - END
 	}
 

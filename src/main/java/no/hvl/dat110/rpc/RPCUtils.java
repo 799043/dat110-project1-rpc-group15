@@ -2,6 +2,9 @@ package no.hvl.dat110.rpc;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+
+import org.apache.maven.surefire.shared.lang3.ArrayUtils;
+
 import no.hvl.dat110.TODO;
 
 public class RPCUtils {
@@ -14,9 +17,9 @@ public class RPCUtils {
 		
 		// Encapsulate the rpcid and payload in a byte array according to the RPC message syntax / format
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
+		rpcmsg = payload;
+		rpcmsg = ArrayUtils.addFirst(payload, rpcid);
+
 		// TODO - END
 		
 		return rpcmsg;
@@ -29,9 +32,7 @@ public class RPCUtils {
 		// TODO - START
 		
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		payload = Arrays.copyOfRange(rpcmsg, 1, rpcmsg.length);
 		
 		// TODO - END
 		
@@ -46,8 +47,7 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		encoded = str.getBytes();
 		
 		// TODO - END
 		
@@ -61,8 +61,7 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		decoded = new String(data);
 		
 		// TODO - END
 		
@@ -75,8 +74,7 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		encoded = new byte[0]; // Empty byte array
 				
 		// TODO - END
 		
@@ -87,9 +85,7 @@ public class RPCUtils {
 	public static void unmarshallVoid(byte[] data) {
 		
 		// TODO
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		// Does nothing or can (optionally) do a small sanity check checking that the payload received is empty
 		
 	}
 
@@ -122,8 +118,7 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		encoded = ByteBuffer.allocate(4).putInt(x).array();
 		
 		// TODO - END
 		
@@ -137,8 +132,7 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		decoded = ByteBuffer.wrap(data).getInt();
 		
 		// TODO - END
 		
